@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Records App</title>
+</head>
+<body>
+
+<div  class="container">
+  <form th:action="@{/save}" method="post" th:object="${emp}">
+    <h1>Employee Registration </h1>
+    <span th:text="${sucMsg}"></span>
+    <span th:text="${failMsg}"></span>
+   <dl class="form-group w-50">
+    <dt>Name</dt> 
+    <dd><input type="text"  th:field="*{name}" class="form-control">
+   <!--  how we will get the id of the employee from the input form since 
+	input form does not have id field since we r auto generating it
+	even then make one id field and assign type="hidden" instead of text
+	so it will not be visible on the form but still we can input id the form  -->
+    <input type="hidden" th:field="*{id}" class="from-control">
+    </dd>
+    <dt>Address</dt>
+    <dd><input type="text"  th:field="*{add}" class="form-control"></dd>
+    <dt>Salary</dt>
+    <dd><input type="text"  th:field="*{sal}" class="form-control"></dd>
+    <dt>Dept</dt>
+    <dd><input type="text"  th:field="*{dept}" class="form-control"></dd>
+    </dl>
+  
+  <input type="submit" value="Save" class="btn btn-success w-50">
+ <br>
+  <a th:href="@{/all}">GetAllEmployees</a>
+  
+  
+  
+  
+  
+  
+  </form>
+
+
+</div>
+
+</body>
+</html>
